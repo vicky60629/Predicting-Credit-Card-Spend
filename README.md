@@ -9,6 +9,9 @@ The objective of this case study is to understand what's driving the total spend
 ## Data Availability:
 
  Data for the case are available in xlsx format. 
+
  The data have been provided for 5000 customers.
+
  Detailed data dictionary has been provided for understanding the data in the data.
+
  Data is encoded in the numerical format to reduce the size of the data however some of the variables are categorical. You can find the details in the data dictionary
