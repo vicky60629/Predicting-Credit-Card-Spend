@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Credit Card Spend Prediction</title>
+  <link rel="stylesheet" href="static/style.css">
+</head>
+
+<body>
+ <div class="login">
+	<h1>Credit Card Spend Prediction</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+        <label for="gender">Gender :</label>
+        <select id="attack" name="attack">
+          <option value="0">Male</option>
+          <option value="1">Female</option>
+        </select><br><br>
+
+        <label for="ownvcr">Owns VCR :</label>
+        <select id="ownvcr" name="ownvcr">
+          <option value="0">No</option>
+          <option value="1">Yes</option>
+        </select><br><br>
+
+        <label for="voice">Voice mail :</label>
+        <select id="voice" name="voice">
+          <option value="0">No</option>
+          <option value="1">Yes</option>
+        </select><br><br>
+
+        <label for="wireten">Wireless over tenure :</label>
+    	<input type="text" name="wireten" placeholder="wireten" required="required" /><br><br>
+
+    	<label for="card">Primary credit card :</label>
+        <select id="card" name="card">
+          <option value="1">American Express</option>
+          <option value="2">Visa</option>
+          <option value="3">Mastercard</option>
+          <option value="4">Discover</option>
+          <option value="5">Other</option>
+        </select><br><br>
+
+        <label for="card2">Secondary credit card :</label>
+        <select id="card2" name="card2">
+          <option value="1">American Express</option>
+          <option value="2">Visa</option>
+          <option value="3">Mastercard</option>
+          <option value="4">Discover</option>
+          <option value="5">Other</option>
+        </select><br><br>
+
+        <label for="cardtenure">Years held primary credit card :</label>
+        <select id="cardtenure" name="cardtenure">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+          <option value="14">14</option>
+          <option value="15">15</option>
+          <option value="16">16</option>
+          <option value="17">17</option>
+          <option value="18">18</option>
+          <option value="19">19</option>
+          <option value="20">20</option>
+          <option value="21">21</option>
+          <option value="22">22</option>
+          <option value="23">23</option>
+          <option value="24">24</option>
+          <option value="25">25</option>
+          <option value="26">26</option>
+          <option value="27">27</option>
+          <option value="28">28</option>
+          <option value="29">29</option>
+          <option value="30">30</option>
+          <option value="31">31</option>
+          <option value="32">32</option>
+          <option value="33">33</option>
+          <option value="34">34</option>
+          <option value="35">35</option>
+          <option value="36">36</option>
+          <option value="37">37</option>
+          <option value="38">38</option>
+          <option value="39">39</option>
+          <option value="40">40</option>
+        </select><br><br>
+
+    	<label for="longten">Long distance over tenure :</label>
+        <input type="text" name="longten" placeholder="longten" required="required" /><br><br>
+
+        <label for="tenure">Number of months with service :</label>
+		<input type="text" name="tenure" placeholder="tenure" required="required" /><br><br>
+
+		<label for="income">Household income in thousands :</label>
+    	<input type="text" name="income" placeholder="income" required="required" /><br><br>
+
+    	<label for="lnlongmon">Log-long distance last month :</label>
+        <input type="text" name="lnlongmon" placeholder="lnlongmon" required="required" /><br><br>
+
+        <label for="cardten">Calling card over tenure :</label>
+		<input type="text" name="cardten" placeholder="cardten" required="required" /><br><br>
+
+		<label for="spoused">Spouse years of education :</label>
+    	<input type="text" name="spoused" placeholder="spoused" required="required" /><br><br>
+
+    	<label for="spousedcat">Spouse level of education :</label>
+        <select id="spousedcat" name="spousedcat">
+          <option value="-1">Not married</option>
+          <option value="1">Did not complete high school</option>
+          <option value="2">High school degree</option>
+          <option value="3">Some college</option>
+          <option value="4">College degree</option>
+          <option value="5">Post-undergraduate degree</option>
+        </select><br><br>
+
+        <label for="internet">Internet :</label>
+        <select id="internet" name="internet">
+          <option value="0">None</option>
+          <option value="1">Dial-up</option>
+          <option value="2">DSL</option>
+          <option value="3">Cable modem</option>
+          <option value="4">Other</option>
+        </select><br><br>
+
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+   <br>
+   {% if output %}
+        <h3> Credit Card Spend should be <b style="color:red;">$ {{ output }}</b>  </h3>
+     {% endif %}
+   </div>
+</body>
+</html>
