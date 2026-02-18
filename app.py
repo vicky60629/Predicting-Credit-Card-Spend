@@ -1,9 +1,14 @@
 import numpy as np
 from flask import Flask, request, jsonify, render_template
 import joblib
+import os
 
 app = Flask(__name__)
-model = joblib.load('model.pkl')
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+model_path = os.path.join(BASE_DIR, "model.pkl")
+with open(model_path, "rb") as f:
+    model = pickle.load(f)
 
 @app.route('/')
 def home():
@@ -32,4 +37,5 @@ def predict():
     return render_template('index.html', output=output)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host="0.0.0.0", port=port)
