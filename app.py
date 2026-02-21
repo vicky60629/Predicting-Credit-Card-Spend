@@ -1,6 +1,7 @@
 import numpy as np
 from flask import Flask, request, jsonify, render_template
 import joblib
+import pickle
 import os
 
 app = Flask(__name__)
