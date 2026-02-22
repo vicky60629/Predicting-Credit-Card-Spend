@@ -8,8 +8,7 @@ app = Flask(__name__)
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 model_path = os.path.join(BASE_DIR, "model.pkl")
-with open(model_path, "rb") as f:
-    model = pickle.load(f)
+model = joblib.load('model.pkl')
 
 @app.route('/')
 def home():
